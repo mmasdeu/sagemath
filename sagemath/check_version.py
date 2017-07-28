@@ -5,11 +5,11 @@ from pkg_resources import parse_version
 # Here we test that the version is the correct one
 def check_version(version):
     try:
-        from sage.all import version
+        from sage.all import version as sage_version_function
     except ImportError:
         raise ValueError("Sage does not seem to be installed in this system. Please visit www.sagemath.org to fix this!")
     version = str(version)
-    installed_version = version().replace(',','').split()[2]
+    installed_version = sage_version_function().replace(',','').split()[2]
     if version.find('==') != -1:
         version = version.replace('==','')
         if parse_version(version) != parse_version(installed_version):
