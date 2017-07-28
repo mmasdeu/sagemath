@@ -1,9 +1,11 @@
+#!/usr/bin/env sage -python
+
 from pkg_resources import parse_version
 
 # Here we test that the version is the correct one
 def check_version(version):
     try:
-        import sage.all
+        from sage.all import *
     except ImportError:
         raise ValueError("Sage does not seem to be installed in this system. Please visit www.sagemath.org to fix this!")
     installed_version = sage.all.version().replace(',','').split()[2]
@@ -22,7 +24,7 @@ Sage version (= %s) is older than the required one (= %s)\n
     elif version == '':
         pass
     else:
-        raise ValueError("version argument (=%s) not understood"%version)
+        raise ValueError("Version argument (=%s) not understood"%version)
     return
 
 
