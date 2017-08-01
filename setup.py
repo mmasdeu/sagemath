@@ -9,6 +9,8 @@ def readfile(filename):
     with open(filename,  encoding='utf-8') as f:
         return f.read()
 
+REQUIREMENTS = [i.strip() for i in open("requirements.txt").readlines()]
+
 setup(
     name = "sagemath",
     version = readfile("VERSION"), # the VERSION file is shared with the documentation
@@ -30,5 +32,6 @@ setup(
       'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
       'Programming Language :: Python :: 2.7',
     ], # classifiers list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
-    keywords = "SageMath"
+    keywords = "SageMath",
+    install_requires = REQUIREMENTS
 )
