@@ -1,4 +1,5 @@
 language: python
+dist: bionic
 matrix:
   include:
   - env: CACHE_NAME=latest DEPLOY_DOC_FROM_BRANCH=master DEPLOY_DOC_TO_REPOSITORY=mmasdeu/sagemath
